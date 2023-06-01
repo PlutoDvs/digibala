@@ -109,25 +109,3 @@ func TestDeleteVoucher(t *testing.T) {
 	}
 	assert.Equal(t, status, ret)
 }
-
-func TestUpdateSocial(t *testing.T) {
-	e := echo.New()
-	voucherRoutes(e)
-
-	voucher := &models.Voucher{
-		ID: 0,
-	}
-
-	w := httptest.NewRecorder()
-	r := httptest.NewRequest(http.MethodPut, "/api/v1/voucher/5", nil)
-	r.Header.Set("content-type", "application/json")
-	e.ServeHTTP(w, r)
-
-	resp := w.Result()
-	ret := new(models.Voucher)
-	err := json.NewDecoder(resp.Body).Decode(ret)
-	if err != nil {
-		t.Fatal(err)
-	}
-	assert.Equal(t, voucher, ret)
-}

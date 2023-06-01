@@ -7,4 +7,7 @@ import (
 
 func TestGiftCard(t *testing.T) {
 	fmt.Println("nigga")
+	fmt.Println("nigga")
+	fmt.Println("nigga")
+	fmt.Println("nigga")
 }
